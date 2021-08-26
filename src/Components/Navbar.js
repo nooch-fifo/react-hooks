@@ -3,10 +3,10 @@ import React from 'react';
 
 function Navbar(){
     return(
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-default" style={{padding:10}}>
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/">dominicrego.com</a>
+                <a class="navbar-brand" href="/">Dominic Rego's Blog</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
@@ -25,9 +25,8 @@ function Navbar(){
                     </li>
                 </ul>
                 <div class="navbar-text navbar-right">
-                    Welcome <span>Guest</span>
                     <form id="frmlogout" method="post" class="form-inline">
-                        | <a href="javascript:{}" onclick="document.getElementById('frmlogout').submit(); return false;">Logout</a>
+                    Welcome <span>Guest</span> | <a href="javascript:{}" onclick="document.getElementById('frmlogout').submit(); return false;">Logout</a>
                     </form>
                 </div>
                 {/* <p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link">Guest User</a></p> */}
