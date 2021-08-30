@@ -1,4 +1,4 @@
-const api = 'http://localhost:9990/posts';
+const api = 'http://localhost:9990/';
 
 class LatestPostService{
     getPosts(){
