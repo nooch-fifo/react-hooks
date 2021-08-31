@@ -36,7 +36,7 @@ class LatestPost extends React.Component {
                     <footer style={{ paddingTop: 10, paddingBottom: 10 }}>
                         {/* <a href="|@{/post/view/}${post.slug}|">Read More</a> */}
                         <a href={data.posts.slug}>Read More</a>
-                        <address>
+                        <address style={{marginTop:25}}>
                             {/* <a href="|mailto:${post.author.email}|">Posted By <span text="|${post.author.firstName} ${post.author.lastName}|">author</span></a> */}
                             <a>Posted By <span>Dominic Rego</span></a>
                         </address>

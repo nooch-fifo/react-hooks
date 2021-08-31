@@ -23,6 +23,7 @@ function AboutMe() {
                     </div>
                 </div>
             </section>
+            <hr />
         </div>
     );
 

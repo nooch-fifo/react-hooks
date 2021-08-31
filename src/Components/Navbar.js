@@ -3,7 +3,7 @@ import React from 'react';
 
 function Navbar(){
     return(
-        <nav class="navbar navbar-default" style={{padding:10}}>
+        <nav class="navbar navbar-default" style={{padding:5}}>
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="/"></a>
