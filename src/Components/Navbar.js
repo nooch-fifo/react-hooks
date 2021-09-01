@@ -1,21 +1,22 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 
 function Navbar(){
     return(
         <nav class="navbar navbar-default" style={{padding:5}}>
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/"></a>
+                <Link to="/" className="navbar-brand"></Link>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/">Home</a></li>
+                    <li class=""><Link to="/">Home</Link></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Posts <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/posts/list">List</a></li>
-                        </ul>
+                    <Link to="/posts/list">Posts</Link>
+                        {/* <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Posts <span class="caret"></span></a> */}
+                        {/* <ul class="dropdown-menu">
+                            <li><Link to="/posts/list"></Link></li>
+                        </ul> */}
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Authors <span class="caret"></span></a>

@@ -1,16 +1,26 @@
 import './App.css';
 import Navbar from './Components/Navbar';
-import AboutMe from './Components/AboutMe';
-import LatestPost from './Components/LatestPost';
+import BlogPosts from './Components/BlogPosts';
 import Footer from './Components/Footer';
+import Home from './Components/Home';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+}
+  from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <AboutMe />
-      <LatestPost />
-      <Footer />
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route exact path="/"><Home /></Route>
+          <Route exact path="/posts/list"><BlogPosts /></Route>
+        </Switch>
+        <Footer />
+      </Router>
     </div>
 
   );
