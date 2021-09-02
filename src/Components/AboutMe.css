@@ -9,3 +9,35 @@ h1 {
     font-size: 50px;
     letter-spacing: -.05ch;
 }
+
+.arrow{
+    position: absolute;
+    top: 91.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.arrow span {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-bottom: 5px solid #337ab7;
+    border-right: 5px solid #337ab7;
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: scroll 2s infinite;
+}
+
+@keyframes scroll{
+    0%{
+        opacity: 0;
+        transform: rotate(45deg) translate(-20px, -20px);
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 1;
+        transform: rotate(45deg) translate(20px, 20px);
+    }
+}

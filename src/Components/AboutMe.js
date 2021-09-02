@@ -8,7 +8,7 @@ function AboutMe() {
                 <div class="hello">
                     <h4 class="text-left text-primary text-capitalize">Welcome to my corner of the internet...</h4>
                     <h1 class="text-dark text-left">I'm Dominic.</h1>
-                    <img src="/../face.jpeg" alt="Face Shot" class="rounded" style={{ width: 180}}></img>
+                    <img src="/../face.jpeg" alt="Face Shot" class="rounded" style={{ width: 155}}></img>
                 </div>
             </section>
             <section style={{ padding: 15 }}>
@@ -23,6 +23,9 @@ function AboutMe() {
                     </div>
                 </div>
             </section>
+            <div className="arrow">
+                <span></span>
+            </div>
             <hr />
         </div>
     );
