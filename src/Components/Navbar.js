@@ -1,4 +1,5 @@
 import React from 'react';
+import './Navbar.css'
 import { Link } from 'react-router-dom';
 
 function Navbar(){
@@ -12,7 +13,7 @@ function Navbar(){
                 <ul class="nav navbar-nav">
                     <li class=""><Link to="/">Home</Link></li>
                     <li class="dropdown">
-                    <Link to="/posts/list">Posts</Link>
+                    <Link to="/posts">Posts</Link>
                         {/* <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Posts <span class="caret"></span></a> */}
                         {/* <ul class="dropdown-menu">
                             <li><Link to="/posts/list"></Link></li>

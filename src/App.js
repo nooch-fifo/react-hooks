@@ -17,7 +17,7 @@ function App() {
         <Navbar />
         <Switch>
           <Route exact path="/"><Home /></Route>
-          <Route exact path="/posts/list"><BlogPosts /></Route>
+          <Route exact path="/posts"><BlogPosts /></Route>
         </Switch>
         <Footer />
       </Router>
