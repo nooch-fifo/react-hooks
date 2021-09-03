@@ -23,7 +23,7 @@ class CreatePost extends React.Component {
     submitHandler = e => {
         e.preventDefault();
         console.log(this.state);
-        CreatePostService.addPost()
+        CreatePostService.addPost(this.state)
         .then((res) => {
             console.log(res);
         })
