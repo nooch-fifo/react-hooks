@@ -3,6 +3,7 @@ import Navbar from './Components/Navbar';
 import BlogPosts from './Components/BlogPosts';
 import Footer from './Components/Footer';
 import Home from './Components/Home';
+import CreatePost from './Components/CreatePost';
 import {
   BrowserRouter as Router,
   Switch,
@@ -18,6 +19,7 @@ function App() {
         <Switch>
           <Route exact path="/"><Home /></Route>
           <Route exact path="/posts"><BlogPosts /></Route>
+          <Route exact path="/addPost"><CreatePost /></Route>
         </Switch>
         <Footer />
       </Router>
