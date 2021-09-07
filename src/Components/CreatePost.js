@@ -45,25 +45,26 @@ class CreatePost extends React.Component {
                     <h1 class="text-dark text-left">What's on Your Mind Today?</h1>
                 </div>
                 <form onSubmit={this.submitHandler} className="text-center" style={{ marginTop: 75 }}>
-                    <div>
-                        <input type="text" name="title" placeholder="Blog Title" size="55" value={title} onChange={this.changeHandler} />
+                    <div className="form-group">
+                        <label for="title">Blog Title</label>
+                        <input type="text" name="title" className="form-control" placeholder="Enter Blog Title..." size="55" value={title} onChange={this.changeHandler} />
                     </div>
-                    <div>
-                        <input type="text" name="body" placeholder="Post Body" size="55" value={body} onChange={this.changeHandler} />
+                    <div className="form-group">
+                        <input type="text" name="body" className="form-control" placeholder="Post Body..." size="55" value={body} onChange={this.changeHandler} />
                     </div>
-                    <div>
-                        <input type="text" name="teaser" placeholder="Tease the Post..." size="55" value={teaser} onChange={this.changeHandler} />
+                    <div className="form-group">
+                        <input type="text" name="teaser" className="form-control" placeholder="Tease the Post..." size="55" value={teaser} onChange={this.changeHandler} />
                     </div>
-                    <div>
-                        <input type="text" name="slug" placeholder="Post Slug" size="55" value={slug} onChange={this.changeHandler} />
+                    <div className="form-group">
+                        <input type="text" name="slug" className="form-control" placeholder="Post Slug" size="55" value={slug} onChange={this.changeHandler} />
                     </div>
-                    <div>
-                        <input type="text" name="postedOn" placeholder="Date" size="55" value={postedOn} onChange={this.changeHandler} />
+                    <div className="form-group">
+                        <input type="text" name="postedOn" className="form-control" placeholder="Date" size="55" value={postedOn} onChange={this.changeHandler} />
                     </div>
                     {/* <div>
                         <input type="text" name="author" value={author} onChange={this.changeHandler} />
                     </div> */}
-                    <button type="submit">Submit</button>
+                    <button type="submit" className="btn btn-primary">Submit</button>
                 </form>
             </div>
         )
