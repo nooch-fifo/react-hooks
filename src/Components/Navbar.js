@@ -20,7 +20,7 @@ function Navbar(){
                         </ul> */}
                     </li>
                     <li class="dropdown">
-                        <Link to = "/addPost">New Post</Link>
+                        <Link to = "/addPost">New Post <i class="bi bi-pencil-square"></i></Link>
                         {/* <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Authors <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/authors/list">List</a></li>

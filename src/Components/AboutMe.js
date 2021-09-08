@@ -26,7 +26,7 @@ function AboutMe() {
             <div className="arrow">
                 <span></span>
             </div>
-            <hr />
+            <hr style={{marginTop:55}}/>
         </div>
     );
 

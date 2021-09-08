@@ -25,7 +25,7 @@ class LatestPost extends React.Component {
         const data = this.state;
         return (
             <div className="container text-left">
-                <h3 class="text-primary text-center">My Latest Post</h3>
+                <h3 class="text-primary text-center" style={{marginTop:25, marginBottom:55}}>My Latest Post</h3>
                 <article>
                     <header>
                         <h2>{data.posts.title}</h2>
