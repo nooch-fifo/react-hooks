@@ -7,12 +7,14 @@ class CreatePost extends React.Component {
 
     constructor(props) {
         super(props);
+        var today = new Date();
+        var currentDateTime = today.toISOString();
         this.state = {
             title: '',
             body: '',
             teaser: '',
             slug: '',
-            postedOn: '',
+            postedOn: currentDateTime,
             author: ''
         }
     }
@@ -22,7 +24,7 @@ class CreatePost extends React.Component {
     }
 
     submitHandler = e => {
-        e.preventDefault();
+        // e.preventDefault();
         fetch(addPostAPI, {
             method: 'post',
             headers: {
@@ -35,9 +37,9 @@ class CreatePost extends React.Component {
                 console.log(res);
             })
     }
-
     render() {
         const { title, body, teaser, slug, postedOn } = this.state;
+        console.log(postedOn);
         return (
             <div class="container">
                 <div className="greeting">
@@ -63,7 +65,7 @@ class CreatePost extends React.Component {
                                 <input type="text" name="slug" className="form-control" placeholder="Post Slug" size="55" value={slug} onChange={this.changeHandler} />
                             </div>
                             <div className="form-group">
-                                <input type="text" name="postedOn" className="form-control" placeholder="Date" size="55" value={postedOn} onChange={this.changeHandler} />
+                                <input type="hidden" name="postedOn" className="form-control" placeholder="Date" size="55" value={postedOn} onChange={this.changeHandler} />
                             </div>
                             {/* <div>
                         <input type="text" name="author" value={author} onChange={this.changeHandler} />
