@@ -30,7 +30,7 @@ class BlogPosts extends React.Component {
                             <article>
                                 <header>
                                     <h2>{post.title}</h2>
-                                    <p style={{ paddingTop: 10, paddingBottom: 10 }}>{post.postedOn}</p>
+                                    <p style={{ paddingTop: 10, paddingBottom: 10 }}>{new Date(post.postedOn).toDateString()}</p>
                                 </header>
                                 <section>
                                     {post.teaser}
