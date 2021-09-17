@@ -23,9 +23,9 @@ class EditPosts extends React.Component {
             });
     }
 
-    deleteHandler(id){
+    deleteHandler(id) {
         EditPostsService.deletePost(id).then(res => {
-            this.setState({list: this.state.list.filter(post => post.id !== id)});
+            this.setState({ list: this.state.list.filter(post => post.id !== id) });
         });
     }
 
@@ -33,14 +33,18 @@ class EditPosts extends React.Component {
         return (
             <div className="container text-left">
                 <h3 class="text-primary text-center" style={{ marginBottom: 100 }}>Update / Delete Posts</h3>
-                <hr style={{marginTop:-50}}/>
+                <hr style={{ marginTop: -50 }} />
                 {
                     this.state.list.map(
                         post =>
                             <article>
                                 <header>
                                     <div className="text-right">
-                                        <button className="btn btn-danger" onClick={ () => this.deleteHandler(post.id)}>Delete Post</button>
+                                        <button className="btn btn-danger" style={{ paddingLeft: 14, paddingRight: 14 }}
+                                            onClick={() => this.deleteHandler(post.id)}>Delete Post</button>
+                                    </div>
+                                    <div className="text-right" style={{ marginTop: 5 }}>
+                                        <button className="btn btn-warning" onClick>Update Post</button>
                                     </div>
                                     <h2>{post.title}</h2>
                                     <p style={{ paddingTop: 10, paddingBottom: 10 }}>{post.postedOn}</p>
