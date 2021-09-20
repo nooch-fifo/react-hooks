@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import BlogPostsService from '../Services/BlogPostsService';
 import EditPostsService from '../Services/EditPostsService';
 
@@ -12,6 +13,7 @@ class EditPosts extends React.Component {
         }
 
         this.deleteHandler = this.deleteHandler.bind(this);
+        this.updatePost = this.updatePost.bind(this);
     }
 
     componentDidMount() {
@@ -21,6 +23,13 @@ class EditPosts extends React.Component {
                 // confirmed all posts from backend are received
                 console.log(res);
             });
+    }
+
+    updatePost(id){
+        this.props.history.push({
+            pathname: `/updatePost/${id}`,
+            state: id
+        });
     }
 
     deleteHandler(id) {
@@ -44,7 +53,7 @@ class EditPosts extends React.Component {
                                             onClick={() => this.deleteHandler(post.id)}>Delete Post</button>
                                     </div>
                                     <div className="text-right" style={{ marginTop: 5 }}>
-                                        <button className="btn btn-warning" onClick>Update Post</button>
+                                        <button className="btn btn-warning" onClick = { () => this.updatePost(post.id) }>Update Post</button>
                                     </div>
                                     <h2>{post.title}</h2>
                                     <p style={{ paddingTop: 10, paddingBottom: 10 }}>{post.postedOn}</p>
@@ -69,4 +78,4 @@ class EditPosts extends React.Component {
     }
 }
 
-export default EditPosts;
+export default withRouter(EditPosts);
