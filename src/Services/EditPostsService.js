@@ -1,5 +1,7 @@
 const deletePostAPI = "http://localhost:9990/delete"
 
+const getPostByIdAPI = "http://localhost:9990/posts"
+
 class EditPostsService {
     deletePost(id) {
         return fetch(deletePostAPI + '/' + id,
@@ -11,6 +13,14 @@ class EditPostsService {
                 }
             })
             .then((res => res.text()));
+    }
+
+    getPostById(id){
+        return fetch(getPostByIdAPI + '/' + id,
+        {
+            method: 'get'
+        })
+        .then((res => res.json()));
     }
 }
 
