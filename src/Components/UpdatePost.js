@@ -2,6 +2,7 @@ import React from 'react';
 import EditPostsService from '../Services/EditPostsService';
 import { withRouter } from 'react-router-dom';
 
+const updatePostAPI = "http://localhost:9990/updatePost"
 
 class UpdatePost extends React.Component {
     constructor(props) {
@@ -42,6 +43,7 @@ class UpdatePost extends React.Component {
     updateHandler = (e) => {
         e.preventDefault();
         let post = {
+            id: this.state.id,
             title: this.state.title,
             body: this.state.body,
             teaser: this.state.teaser,
@@ -49,6 +51,17 @@ class UpdatePost extends React.Component {
             postedOn: this.state.postedOn
         };
         console.log('updatedPost: ' + JSON.stringify(post))
+        fetch(updatePostAPI, {
+            method: 'put',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(post)
+        }).then(res => res.json())
+            .then((res) => {
+                this.props.history.push("/posts");
+            })
     }
 
     render() {
