@@ -19,29 +19,27 @@ class UpdatePost extends React.Component {
         }
     }
     componentDidMount() {
-        if(this.state.id == -1){
-            return
-        }else{
         EditPostsService.getPostById(this.state.id)
             .then( (res) => {
                 console.log(res);
-                // let post = res.data;
-                // this.setState({
-                //     title: post.title,
-                //     body: post.body,
-                //     teaser: post.teaser,
-                //     slug: post.slug,
-                //     postedOn: post.postedOn
-                // });
+                console.log(res.title);
+                let post = res;
+                this.setState({
+                    title: post.title,
+                    body: post.body,
+                    teaser: post.teaser,
+                    slug: post.slug,
+                    postedOn: post.postedOn
+                });
+                console.log(this.state.title);
             });
-        }
     }
 
-    changeHandler = e => {
+    changeHandler = (e) => {
         this.setState({ [e.target.name]: e.target.value })
     }
 
-    updateHandler = e => {
+    updateHandler = (e) => {
         e.preventDefault();
         let post = {
             title: this.state.title,
@@ -57,8 +55,6 @@ class UpdatePost extends React.Component {
         console.log(this.state.id);
         return (
             <div class="container">
-                <h2>Update Post</h2>
-                <h7>Check URL Path to Cofirm Correct Post ID</h7>
                 <div className="greeting">
                     <h3 class="text-left text-primary text-capitalize">Something wrong, Dominic?</h3>
                     <h1 class="text-dark text-left">No Worries, We Can Fix That!</h1>
@@ -67,7 +63,7 @@ class UpdatePost extends React.Component {
                     <h4 class="panel-heading text-left">Update Blog Post <i class="bi bi-chat-left-quote" style={{ fontSize: 17.5 }}></i></h4>
                     <hr style={{ marginTop: 50, marginBottom: 30 }} />
                     <div className="row">
-                        <form onSubmit={this.updateHandler} className="text-center col-md-6">
+                        <form className="text-center col-md-6">
                             <div className="form-group">
                                 {/* <label>Blog Title</label> */}
                                 <input type="text" name="title" className="form-control" placeholder="Enter Blog Title..." size="55" value={this.state.title} onChange={this.changeHandler} />
@@ -87,7 +83,7 @@ class UpdatePost extends React.Component {
                             {/* <div>
                                 <input type="text" name="author" value={author} onChange={this.changeHandler} />
                             </div> */}
-                            <button type="submit" className="btn btn-primary">Update</button>
+                            <button type="submit" onClick={this.updateHandler} className="btn btn-primary">Update</button>
                         </form>
                     </div>
                 </div>
