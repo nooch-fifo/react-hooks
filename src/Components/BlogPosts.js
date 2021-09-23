@@ -1,5 +1,6 @@
 import React from 'react';
 import BlogPostsService from '../Services/BlogPostsService';
+import { Link, withRouter } from 'react-router-dom';
 
 
 class BlogPosts extends React.Component {
@@ -9,6 +10,7 @@ class BlogPosts extends React.Component {
         this.state = {
             list: []
         }
+        this.readPostBySlug = this.readPostBySlug.bind(this);
     }
 
     componentDidMount() {
@@ -18,6 +20,12 @@ class BlogPosts extends React.Component {
                 // confirmed all posts from backend are received
                 console.log(res);
             });
+    }
+
+    readPostBySlug(slug){
+        this.props.history.push({
+            pathname: `/post/${slug}`
+        });
     }
 
     render() {
@@ -37,7 +45,7 @@ class BlogPosts extends React.Component {
                                 </section>
                                 <footer style={{ paddingTop: 10, paddingBottom: 10 }}>
                                     {/* <a href="|@{/post/view/}${post.slug}|">Read More</a> */}
-                                    <a href={post.slug}>Read More</a>
+                                    <Link to={post.slug} onClick={() => this.readPostBySlug(post.slug)}>Read More</Link>
                                     <address style={{ marginTop: 25 }}>
                                         {/* <a href="|mailto:${post.author.email}|">Posted By <span text="|${post.author.firstName} ${post.author.lastName}|">author</span></a> */}
                                         <a>Posted By <span>Dominic Rego</span></a>
@@ -52,4 +60,4 @@ class BlogPosts extends React.Component {
     }
 }
 
-export default BlogPosts;
+export default withRouter(BlogPosts);

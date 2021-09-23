@@ -9,7 +9,7 @@ function Navbar() {
                 <div class="navbar-header">
                     <Link to="/" className="navbar-brand"></Link>
                 </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style={{marginLeft: 32}}>
                     <ul class="nav navbar-nav">
                         <li class=""><Link to="/">Home</Link></li>
                         <li class="dropdown">
@@ -27,7 +27,7 @@ function Navbar() {
                         </ul> */}
                         </li>
                     </ul>
-                    <div class="navbar-text navbar-right">
+                    <div class="navbar-text navbar-right" style={{marginRight:40}}>
                         <Link to="/editPosts">Edit Posts <i class="bi bi-file-earmark-minus"></i></Link>
                         {/* <form id="frmlogout" method="post" class="form-inline">
                     Welcome <span>Guest</span> | <a href="javascript:{}" onclick="document.getElementById('frmlogout').submit(); return false;">Logout</a>

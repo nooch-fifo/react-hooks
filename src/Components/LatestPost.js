@@ -1,5 +1,6 @@
 import React from 'react';
 import LatestPostService from '../Services/LatestPostService';
+import { Link, withRouter } from 'react-router-dom';
 
 
 class LatestPost extends React.Component {
@@ -9,6 +10,7 @@ class LatestPost extends React.Component {
         this.state = {
             posts: []
         }
+        this.readPostBySlug = this.readPostBySlug.bind(this);
     }
 
     componentDidMount() {
@@ -18,6 +20,12 @@ class LatestPost extends React.Component {
                 // confirmed the post from backend is received
                 console.log(res);
             });
+    }
+
+    readPostBySlug(slug){
+        this.props.history.push({
+            pathname: `/post/${slug}`
+        });
     }
 
 
@@ -36,7 +44,7 @@ class LatestPost extends React.Component {
                     </section>
                     <footer style={{ paddingTop: 10, paddingBottom: 10 }}>
                         {/* <a href="|@{/post/view/}${post.slug}|">Read More</a> */}
-                        <a href={data.posts.slug}>Read More</a>
+                        <Link to={data.posts.slug} onClick={() => this.readPostBySlug(data.posts.slug)}>Read More</Link>
                         <address style={{marginTop:25}}>
                             {/* <a href="|mailto:${post.author.email}|">Posted By <span text="|${post.author.firstName} ${post.author.lastName}|">author</span></a> */}
                             <a>Posted By <span>Dominic Rego</span></a>
@@ -50,4 +58,4 @@ class LatestPost extends React.Component {
 
 }
 
-export default LatestPost;
+export default withRouter(LatestPost);
