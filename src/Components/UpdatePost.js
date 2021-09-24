@@ -68,14 +68,14 @@ class UpdatePost extends React.Component {
         console.log(this.state.id);
         return (
             <div class="container">
-                <div className="greeting">
-                    <h3 class="text-left text-primary text-capitalize">Something wrong, Dominic?</h3>
-                    <h1 class="text-dark text-left">No Worries, We Can Fix That!</h1>
+                <div className="greeting" style={{padding:25}}>
+                    <h4 class="text-left text-primary text-capitalize">Something wrong... ?</h4>
+                    <h2 class="text-dark text-left">No Worries, We Can Fix That!</h2>
                 </div>
-                <div className="panel panel-primary" style={{ marginTop: 75, padding: 25 }}>
+                <div className="panel panel-primary" style={{ marginTop: 50, padding: 25 }}>
                     <h4 class="panel-heading text-left">Update Blog Post <i class="bi bi-chat-left-quote" style={{ fontSize: 17.5 }}></i></h4>
-                    <hr style={{ marginTop: 50, marginBottom: 30 }} />
-                    <div className="row">
+                    {/* <hr style={{ marginTop: 50, marginBottom: 30 }} /> */}
+                    <div className="row" style={{marginTop:50}}>
                         <form className="text-center col-md-6">
                             <div className="form-group">
                                 {/* <label>Blog Title</label> */}

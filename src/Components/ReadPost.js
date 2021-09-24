@@ -34,8 +34,8 @@ class ReadPost extends React.Component {
         return (
             <div className="container text-left">
                 <ol class="breadcrumb">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/posts/">Posts</a></li>
+                    <li><a href="/">Home <i class="bi bi-house"></i></a></li>
+                    <li><a href="/posts/">Posts <i class="bi bi-list"></i></a></li>
                     <li class="active">{this.state.title}</li>
                 </ol>
                 <article style={{marginTop:50}}>

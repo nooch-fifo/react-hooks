@@ -42,27 +42,27 @@ class CreatePost extends React.Component {
         console.log(postedOn);
         return (
             <div class="container">
-                <div className="greeting">
-                    <h3 class="text-left text-primary text-capitalize">Welcome back Dominic...</h3>
-                    <h1 class="text-dark text-left">What's on Your Mind Today?</h1>
+                <div className="greeting" style={{padding:25}}>
+                    <h4 class="text-left text-primary text-capitalize">Welcome back Dominic...</h4>
+                    <h2 class="text-dark text-left">What's on Your Mind Today?</h2>
                 </div>
-                <div className="panel panel-primary" style={{ marginTop: 75, padding: 25 }}>
+                <div className="panel panel-primary" style={{ marginTop: 50, padding: 25 }}>
                     <h4 class="panel-heading text-left">Write a New Blog Post <i class="bi bi-chat-left-quote" style={{ fontSize: 17.5 }}></i></h4>
-                    <hr style={{ marginTop: 50, marginBottom: 30 }} />
-                    <div className="row">
+                    {/* <hr style={{ marginTop: 50, marginBottom: 30 }} /> */}
+                    <div className="row" style={{marginTop:50}}>
                         <form onSubmit={this.submitHandler} className="text-center col-md-6">
                             <div className="form-group">
                                 {/* <label>Blog Title</label> */}
-                                <input type="text" name="title" className="form-control" placeholder="Enter Blog Title..." size="55" value={title} onChange={this.changeHandler} />
+                                <input type="text" name="title" className="form-control" placeholder="Enter Blog Title..." size="55" value={title} onChange={this.changeHandler} required/>
                             </div>
                             <div className="form-group">
-                                <textarea rows="4" name="body" className="form-control" placeholder="Post Body..." size="55" value={body} onChange={this.changeHandler} />
+                                <textarea rows="4" name="body" className="form-control" placeholder="Post Body..." size="55" value={body} onChange={this.changeHandler} required/>
                             </div>
                             <div className="form-group">
-                                <textarea rows="3" name="teaser" className="form-control" placeholder="Tease the Post..." size="55" value={teaser} onChange={this.changeHandler} />
+                                <textarea rows="3" name="teaser" className="form-control" placeholder="Tease the Post..." size="55" value={teaser} onChange={this.changeHandler} required/>
                             </div>
                             <div className="form-group">
-                                <input type="text" name="slug" className="form-control" placeholder="Post Slug" size="55" value={slug} onChange={this.changeHandler} />
+                                <input type="text" name="slug" className="form-control" placeholder="Post Slug" size="55" value={slug} onChange={this.changeHandler} required/>
                             </div>
                             <div className="form-group">
                                 <input type="hidden" name="postedOn" className="form-control" placeholder="Date" size="55" value={postedOn} onChange={this.changeHandler} />

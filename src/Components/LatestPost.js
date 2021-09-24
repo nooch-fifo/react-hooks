@@ -37,7 +37,7 @@ class LatestPost extends React.Component {
                 <article>
                     <header>
                         <h2>{data.posts.title}</h2>
-                        <p style={{ paddingTop: 10, paddingBottom: 10 }}>{new Date(data.posts.postedOn).toDateString()}</p>
+                        <p style={{ paddingTop: 10, paddingBottom: 10, fontStyle: 'italic'}}>{new Date(data.posts.postedOn).toDateString()}</p>
                     </header>
                     <section>
                         {data.posts.teaser}
