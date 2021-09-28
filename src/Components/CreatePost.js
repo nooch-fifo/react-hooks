@@ -75,12 +75,12 @@ class CreatePost extends React.Component {
                         <div className="col-md-6">
                             <h4 className="text-info">Helpful Writing Tips <i class="bi bi-list-check" style={{fontSize:17.5}}></i> </h4>
                             <div className="tips" style={{marginTop:55}}>
-                                <ul className="text-center text-capitalize">
-                                    <li style={{padding:10}}>Choose a Topic and Remember Your Target Audience</li>
-                                    <li style={{padding:10}}>Conduct thorough research and outline your post</li>
-                                    <li style={{padding:10}}>Use images to further explain topics and enhance flow</li>
-                                    <li style={{padding:10}}>Read your post aloud, have someone else proofread it</li>
-                                    <li style={{padding:10}}>Listen to feedback, edit post, and have fun!</li>
+                                <ul className="text-center text-capitalize" style={{listStyle:'none'}}>
+                                    <li style={{padding:10}}> - Choose a Topic and Remember Your Target Audience</li>
+                                    <li style={{padding:10}}> - Conduct thorough research and outline your post</li>
+                                    <li style={{padding:10}}> - Use images to further explain topics and enhance flow</li>
+                                    <li style={{padding:10}}> - Read your post aloud, have someone else proofread it</li>
+                                    <li style={{padding:10}}> - Listen to feedback, edit post, and have fun!</li>
                                 </ul>
                             </div>
                         </div>

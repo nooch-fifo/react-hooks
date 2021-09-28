@@ -42,7 +42,7 @@ class ReadPost extends React.Component {
                     <header>
                         <h2>{this.state.title}</h2>
                         {/* <p th:text="${#calendars.format(post.postedOn,'M/dd/yyyy hh:mm a')}">postedOn</p> */}
-                        <p>{new Date(this.state.postedOn).toDateString()}</p>
+                        <p style={{fontStyle: 'italic'}}>{new Date(this.state.postedOn).toDateString()}</p>
                     </header>
                     <section style={{marginTop:25}}>
                         {this.state.body}

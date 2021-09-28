@@ -44,7 +44,7 @@ class LatestPost extends React.Component {
                     </section>
                     <footer style={{ paddingTop: 10, paddingBottom: 10 }}>
                         {/* <a href="|@{/post/view/}${post.slug}|">Read More</a> */}
-                        <Link to={data.posts.slug} onClick={() => this.readPostBySlug(data.posts.slug)}>Read More</Link>
+                        <Link className="text-primary" to={data.posts.slug} onClick={() => this.readPostBySlug(data.posts.slug)}>Read More</Link>
                         <address style={{marginTop:25}}>
                             {/* <a href="|mailto:${post.author.email}|">Posted By <span text="|${post.author.firstName} ${post.author.lastName}|">author</span></a> */}
                             <a>Posted By <span>Dominic Rego</span></a>
