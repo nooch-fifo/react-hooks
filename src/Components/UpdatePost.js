@@ -69,7 +69,7 @@ class UpdatePost extends React.Component {
         return (
             <div class="container">
                 <div className="greeting" style={{padding:25}}>
-                    <h4 class="text-left text-primary text-capitalize">Something wrong... ?</h4>
+                    <h4 class="text-left text-primary text-capitalize">Something wrong...?</h4>
                     <h2 class="text-dark text-left">No Worries, We Can Fix That!</h2>
                 </div>
                 <div className="panel panel-primary" style={{ marginTop: 50, padding: 25 }}>
