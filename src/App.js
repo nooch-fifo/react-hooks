@@ -13,7 +13,7 @@ import {
   Route
 }
   from 'react-router-dom';
-import LoginButton from './Components/Auth0/LoginButton';
+import Auth0Page from './Components/Auth0/Auth0Page';
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
-          <Route exact path="/adminDom"><LoginButton /></Route>
+          <Route exact path="/adminDom"><Auth0Page /></Route>
           <Route exact path="/"><Home /></Route>
           <Route exact path="/posts"><BlogPosts /></Route>
           <Route exact path="/post/:slug"><ReadPost /></Route>
