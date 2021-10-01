@@ -14,6 +14,7 @@ import {
 }
   from 'react-router-dom';
 import Auth0Page from './Components/Auth0/Auth0Page';
+import ProtectedRoute from './Components/Auth0/ProtectedRoute';
 
 function App() {
   return (
@@ -25,8 +26,8 @@ function App() {
           <Route exact path="/"><Home /></Route>
           <Route exact path="/posts"><BlogPosts /></Route>
           <Route exact path="/post/:slug"><ReadPost /></Route>
-          <Route exact path="/addPost"><CreatePost /></Route>
-          <Route exact path="/editPosts"><EditPosts /></Route>
+          <ProtectedRoute path="/addPost" component={CreatePost} />
+          <ProtectedRoute path="/editPosts" component={EditPosts} />
           <Route exact path="/updatePost/:id"><UpdatePost /></Route>
         </Switch>
         <Footer />

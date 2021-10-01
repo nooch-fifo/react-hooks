@@ -10,8 +10,8 @@ const Auth0Profile = () => {
 
     return (
         isAuthenticated && (
-            <div className="container">
-                <h5>Signed in as: {user.name}</h5>
+            <div className="container" style={{marginTop:100}}>
+                <h4>See you soon, {user.name} !</h4>
             </div>
         )
     );

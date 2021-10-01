@@ -1,39 +1,69 @@
 import React from 'react';
 import './Navbar.css'
 import { Link } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
+// import Socials from './Socials';
 
 function Navbar() {
+    const { user, isAuthenticated, isLoading } = useAuth0();
+
+    if (isLoading) {
+        return <div><h5>Loading...</h5></div>
+    }
+
+    var auth = (<div ></div>)
+    var guest = (<div></div>)
+    var authEdit = (<div></div>)
+    var authCreate = (<div></div>)
+
+    if (!isAuthenticated) {
+        guest = (
+            <div className="navbar-text navbar-right" style={{ marginRight: 45 }}>Guest User</div>
+        )
+    }
+
+    if (isAuthenticated) {
+        auth = (
+            <div className="navbar-text navbar-right" style={{ marginRight: 25 }}>
+                <Link to="/adminDom">Signed in as: {user.name} </Link>
+            </div>
+        );
+        authEdit = (
+            <Link to="/editPosts">Edit Posts <i class="bi bi-file-earmark-minus"></i></Link>
+        );
+        authCreate = (
+            <Link to="/addPost">New Post <i class="bi bi-pencil-square"></i></Link>
+        )
+    }
     return (
-        <nav class="navbar navbar-default" style={{ padding: 5 }}>
-            <div class="container-fluid">
-                <div class="navbar-header">
+        <nav className="navbar navbar-default" style={{ padding: 5 }}>
+            <div className="container-fluid">
+                <div className="navbar-header">
                     <Link to="/" className="navbar-brand"></Link>
                 </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style={{marginLeft: 32}}>
-                    <ul class="nav navbar-nav">
-                        <li class=""><Link to="/">Home</Link></li>
-                        <li class="dropdown">
-                            <Link to="/posts">Posts</Link>
-                            {/* <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Posts <span class="caret"></span></a> */}
-                            {/* <ul class="dropdown-menu">
-                            <li><Link to="/posts/list"></Link></li>
-                        </ul> */}
+                <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style={{ marginLeft: 32 }}>
+                    <ul className="nav navbar-nav">
+                        <li className=""><Link to="/">Home</Link></li>
+                        <li className="dropdown">
+                            <Link to="/posts">Blog Posts</Link>
                         </li>
-                        <li class="dropdown">
-                            <Link to="/addPost">New Post <i class="bi bi-pencil-square"></i></Link>
+                        {/* <li class="dropdown">
+                            <Link to="/posts">Social Media</Link>
+                        </li> */}
+
+                        <li className="dropdown">
+                            {authCreate}
                             {/* <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Authors <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/authors/list">List</a></li>
                         </ul> */}
                         </li>
+                        <li className="dropdown">
+                            {authEdit}
+                        </li>
                     </ul>
-                    <div class="navbar-text navbar-right" style={{marginRight:40}}>
-                        <Link to="/editPosts">Edit Posts <i class="bi bi-file-earmark-minus"></i></Link>
-                        {/* <form id="frmlogout" method="post" class="form-inline">
-                    Welcome <span>Guest</span> | <a href="javascript:{}" onclick="document.getElementById('frmlogout').submit(); return false;">Logout</a>
-                    </form> */}
-                    </div>
-                    {/* <p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link">Guest User</a></p> */}
+                    {auth}
+                    {guest}
                 </div>
             </div>
         </nav>
