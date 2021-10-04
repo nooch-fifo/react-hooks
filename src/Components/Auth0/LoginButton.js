@@ -7,7 +7,7 @@ const LoginButton = () => {
     return (
         !isAuthenticated && (
             <div className="container">
-                <h2 class="text-center text-primary text-capitalize" style={{ marginBottom: 50 }}>Auth0 Admin Page</h2>
+                <h2 className="text-center text-primary text-capitalize" style={{ marginBottom: 50 }}>Auth0 Admin Page</h2>
                 <button className="btn btn-primary" onClick={() => loginWithRedirect()}>Login</button>
             </div>
         )
