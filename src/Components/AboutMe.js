@@ -15,10 +15,6 @@ function AboutMe() {
                 <h3 className="text-primary" style={{fontSize: 27.5, marginBottom: 5}}>About The Blog</h3>
                 <div className="row">
                     <div className="col-md-12">
-                        {/* <p class="text-dark" style={{ marginTop: 25, fontSize: 17.5}}>As a junior software engineer and UX design enthusiast, I’m passionate about creating cutting-edge designs
-                            for the user, while innovating efficient, full-stack software that benefits the future. Dedicated to making a
-                            positive impact, my work ethic, eagerness to learn, and my collaborative communication skills allow me to
-                            be a productive, self-accountable, and easy-to-work-with professional.</p> */}
                              <p className="text-dark" style={{ marginTop: 25, fontSize: 17.5}}>After several recommendations from numerous senior colleagues & mentors, I decided the best personal project
                              I can build for my career, is none else, than a personal blog. This is a Full-Stack application with various microservices deployed to the Cloud. For the backend technologies,
                              I utilized Spring Boot with Gradle dependencies that include: Spring Boot Data JPA, Web, and JUnit. Furthermore, the frontend software used was React.js, with CRUD functionality

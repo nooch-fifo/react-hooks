@@ -1,6 +1,5 @@
 import React from 'react';
 import './Socials.css';
-// import { Link } from 'react-router-dom';
 
 function Socials() {
 
