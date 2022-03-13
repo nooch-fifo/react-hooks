@@ -3,10 +3,9 @@ import Navbar from './Components/Navbar';
 import BlogPosts from './Components/BlogPosts';
 import Footer from './Components/Footer';
 import Home from './Components/Home';
-import CreatePost from './Components/CreatePost';
-import EditPosts from './Components/EditPosts';
+import CreateBlog from './Components/CreateBlog';
 import UpdatePost from './Components/UpdatePost';
-import ReadPost from './Components/ReadPost';
+import ReadBlog from './Components/ReadBlog';
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,6 +14,7 @@ import {
   from 'react-router-dom';
 import Auth0Page from './Components/Auth0/Auth0Page';
 import ProtectedRoute from './Components/Auth0/ProtectedRoute';
+import EditBlogs from './Components/EditBlogs';
 
 function App() {
   return (
@@ -25,9 +25,12 @@ function App() {
           <Route exact path="/adminDom"><Auth0Page /></Route>
           <Route exact path="/"><Home /></Route>
           <Route exact path="/posts"><BlogPosts /></Route>
-          <Route exact path="/post/:slug"><ReadPost /></Route>
-          <ProtectedRoute path="/addPost" component={CreatePost} />
-          <ProtectedRoute path="/editPosts" component={EditPosts} />
+          <Route exact path="/post/:slug"><ReadBlog /></Route>
+          {/* DISABLING PROTECTED ROUTES FOR NOW UNTIL NEW Auth0 */}
+          {/* <ProtectedRoute path="/addPost" component={CreatePost} /> */}
+          <Route exact path="/newBlog"><CreateBlog /></Route>
+          {/* <ProtectedRoute path="/editPosts" component={EditPosts} /> */}
+          <Route exact path="/editBlogs"><EditBlogs/></Route>
           <Route exact path="/updatePost/:id"><UpdatePost /></Route>
         </Switch>
         <Footer />

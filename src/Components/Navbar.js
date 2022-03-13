@@ -18,7 +18,7 @@ function Navbar() {
 
     if (!isAuthenticated) {
         guest = (
-            <div className="navbar-text navbar-right" style={{ marginRight: 45 }}>Guest User</div>
+            <div className="navbar-text navbar-right" style={{ marginRight: 355 }}>Guest User</div>
         )
     }
 
@@ -41,11 +41,11 @@ function Navbar() {
                 <div className="navbar-header">
                     <Link to="/" className="navbar-brand"></Link>
                 </div>
-                <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style={{ marginLeft: 32 }}>
+                <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style={{ marginLeft: 355 }}>
                     <ul className="nav navbar-nav">
-                        <li className=""><Link to="/">Home</Link></li>
-                        <li className="dropdown">
-                            <Link to="/posts">Blog Posts</Link>
+                        <li className="home-link"><Link to="/" style={{ color: 'black'}}>Home</Link></li>
+                        <li className="dropdown-blogs">
+                            <Link to="/posts" style={{ color: 'black'}}>Blog Posts</Link>
                         </li>
                         {/* <li class="dropdown">
                             <Link to="/posts">Social Media</Link>
@@ -61,6 +61,7 @@ function Navbar() {
                         <li className="dropdown">
                             {authEdit}
                         </li>
+                        <hr className='header'/>
                     </ul>
                     {auth}
                     {guest}

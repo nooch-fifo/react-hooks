@@ -6,7 +6,7 @@
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 55px;
     letter-spacing: -.05ch;
 }
 
@@ -52,7 +52,7 @@ h1 {
     .hello h4 {
         display: flex;
         overflow: hidden;
-        width: 33%;
+        width: 43%;
         border-right: .12em solid;
         white-space: nowrap;
         margin: 0 0 auto;
@@ -79,7 +79,7 @@ h1 {
 }
 @keyframes typing {
     from { width: 0 }
-    to { width: 33%;}
+    to { width: 43%;}
 }
 
 

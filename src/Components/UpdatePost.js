@@ -1,5 +1,5 @@
 import React from 'react';
-import EditPostsService from '../Services/EditPostsService';
+import EditBlogService from '../Services/EditBlogService';
 import { withRouter } from 'react-router-dom';
 
 const updatePostAPI = "http://localhost:9990/updatePost"
@@ -20,7 +20,7 @@ class UpdatePost extends React.Component {
         }
     }
     componentDidMount() {
-        EditPostsService.getPostById(this.state.id)
+        EditBlogService.getPostById(this.state.id)
             .then( (res) => {
                 console.log(res);
                 console.log(res.title);

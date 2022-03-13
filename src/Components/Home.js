@@ -1,13 +1,13 @@
 import React from 'react';
 import AboutMe from './AboutMe';
-import LatestPost from './LatestPost';
+import LatestBlog from './LatestBlog';
 import Socials from './Socials';
 
 function Home(){
     return(
         <div className="Home">
             <AboutMe />
-            <LatestPost />
+            <LatestBlog />
             <Socials />
         </div>
     )
