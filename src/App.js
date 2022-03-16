@@ -4,7 +4,6 @@ import BlogPosts from './Components/BlogPosts';
 import Footer from './Components/Footer';
 import Home from './Components/Home';
 import CreateBlog from './Components/CreateBlog';
-import UpdatePost from './Components/UpdatePost';
 import ReadBlog from './Components/ReadBlog';
 import {
   BrowserRouter as Router,
@@ -31,7 +30,7 @@ function App() {
           <Route exact path="/newBlog"><CreateBlog /></Route>
           {/* <ProtectedRoute path="/editPosts" component={EditPosts} /> */}
           <Route exact path="/editBlogs"><EditBlogs/></Route>
-          <Route exact path="/updatePost/:id"><UpdatePost /></Route>
+          <Route exact path="/updateBlog/:id"><CreateBlog/></Route>
         </Switch>
         <Footer />
       </Router>

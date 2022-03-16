@@ -1,6 +1,8 @@
 // AFTER REFACTOR TO HOOKS
 
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import BlogPostsService from '../Services/BlogPostsService';
 import EditBlogService from '../Services/EditBlogService';
@@ -11,6 +13,7 @@ function EditBlogs() {
 
     const [blogsList, setBlogsList] = useState([]);
     const [error, setError] = useState(null);
+    const history = useHistory();
 
     useEffect(() => {
 
@@ -59,10 +62,11 @@ function EditBlogs() {
                             <header>
                                 <div className="text-right">
                                     <button className="btn btn-danger" style={{ paddingLeft: 14, paddingRight: 14 }}
-                                        onClick={() => deleteBlog(blog.id)}>Delete Post</button>
+                                        onClick={() => deleteBlog(blog.id)}>Delete Blog</button>
                                 </div>
                                 <div className="text-right" style={{ marginTop: 5 }}>
-                                    <button className="btn btn-warning" onClick={() => this.updatePost(blog.id)}>Update Post</button>
+                                    {/* <button className="btn btn-warning" onClick={() => updateBlog(blog.id)}>Update Post</button> */}
+                                    <Link className="btn btn-warning" to={`/updateBlog/${blog.id}`}>Update Blog</Link>
                                 </div>
                                 <h2>{blog.title}</h2>
                                 <p style={{ paddingTop: 10, paddingBottom: 10 }}>{blog.postedOn}</p>

@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CreateBlogService from '../Services/CreateBlogService';
+import EditBlogService from '../Services/EditBlogService';
 import { useHistory, withRouter } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 
 
@@ -12,34 +14,75 @@ function CreateBlog() {
     const [slug, setSlug] = useState('');
     // current DateTime ** fix Null Bug **
     const [postedOn, setPostedOn] = useState(new Date().toISOString());
+
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
+
     const history = useHistory();
+    const { id } = useParams();
 
-    const createBlog = (e) => {
+
+
+    const createOrUpdateBlog = (e) => {
         e.preventDefault();
-
+        // add postedOn into blog structure for null fix?
         const blog = { title, body, teaser, slug };
-        CreateBlogService.postBlog(blog)
+
+        if (id) {
+            EditBlogService.updateBlog(blog)
             .then((res) => {
                 console.log(res.data)
-                setIsLoaded(true);
                 history.push('/posts')
+            })
+        } else {
+            CreateBlogService.postBlog(blog)
+                .then((res) => {
+                    console.log(res.data)
+                    setIsLoaded(true);
+                    history.push('/posts')
+                },
+                    (error) => {
+                        console.log(error);
+                        setError(error);
+                        setIsLoaded(true);
+                    }
+                )
+        }
+    }
+
+    // useEffect with getBlogById API Call
+    useEffect(() => {
+        EditBlogService.getBlogById(id)
+            .then((res) => {
+                console.log(res);
+                setTitle(res.data.title);
+                setBody(res.data.body);
+                setTeaser(res.data.teaser);
+                setSlug(res.data.slug);
             },
                 (error) => {
                     console.log(error);
                     setError(error);
-                    setIsLoaded(true);
                 }
             )
+    }, [])
+    // need to keep empty dependency or else useEffect will continuously reload
 
+
+    // update welcome message dynamically for either Adding or Updating a Blog Post based on if ID is given
+    const welcomeMessage = () => {
+        if (id) {
+            return <h2 className="text-dark text-left">No Worries, We Can Fix That!</h2>
+        } else {
+            return <h2 className="text-dark text-left">What's on Your Mind Today?</h2>
+        }
     }
 
     return (
         <div className="container">
             <div className="greeting1" style={{ padding: 25 }}>
                 <h4 className="text-left text-primary text-capitalize">Welcome back, Dominic...</h4>
-                <h2 className="text-dark text-left">What's on Your Mind Today?</h2>
+                {welcomeMessage()}
             </div>
             <div className="panel panel-primary" style={{ marginTop: 50, padding: 25 }}>
                 <h4 className="panel-heading text-left">Write a New Blog Post <i className="bi bi-chat-left-quote" style={{ fontSize: 17.5 }}></i></h4>
@@ -62,7 +105,7 @@ function CreateBlog() {
                         <div className="form-group">
                             <input type="hidden" name="postedOn" className="form-control" placeholder="Date" size="55" value={postedOn} onChange={(e => setPostedOn(e.target.value))} />
                         </div>
-                        <button type="submit" className="btn btn-primary" onClick={(e) => createBlog(e)}>Submit</button>
+                        <button type="submit" className="btn btn-primary" onClick={(e) => createOrUpdateBlog(e)}>Submit</button>
                     </form>
                     <div className="col-md-6">
                         <h4 className="text-info">Helpful Writing Tips <i className="bi bi-list-check" style={{ fontSize: 17.5 }}></i> </h4>
