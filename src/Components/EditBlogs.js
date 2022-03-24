@@ -21,12 +21,6 @@ function EditBlogs() {
 
     }, [])
 
-    // updatePost(id){
-    //     this.props.history.push({
-    //         pathname: `/updatePost/${id}`,
-    //         state: id
-    //     });
-    // }
 
     const getBlogsList = () => {
         BlogPostsService.getAllPosts()

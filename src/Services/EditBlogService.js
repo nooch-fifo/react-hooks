@@ -16,7 +16,6 @@ class EditBlogService{
         return axios.get(GET_BLOG_BY_ID + '/' + id);
     }
 
-    // 500 error on API call - may have to add ID
     updateBlog(blog){
         return axios.put(UPDATE_BLOG, blog);
     }

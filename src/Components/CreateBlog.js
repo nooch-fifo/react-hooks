@@ -12,7 +12,6 @@ function CreateBlog() {
     const [body, setBody] = useState('');
     const [teaser, setTeaser] = useState('');
     const [slug, setSlug] = useState('');
-    // current DateTime ** fix Null Bug **
     const [postedOn, setPostedOn] = useState(new Date().toISOString());
 
     const [error, setError] = useState(null);
@@ -25,8 +24,8 @@ function CreateBlog() {
 
     const createOrUpdateBlog = (e) => {
         e.preventDefault();
-        // add postedOn into blog structure for null fix?
-        const blog = { title, body, teaser, slug };
+        // added id & postedOn into blog JSON structure for API calls 
+        const blog = { id, title, body, teaser, slug, postedOn };
 
         if (id) {
             EditBlogService.updateBlog(blog)
@@ -69,7 +68,14 @@ function CreateBlog() {
     // need to keep empty dependency or else useEffect will continuously reload
 
 
-    // update welcome message dynamically for either Adding or Updating a Blog Post based on if ID is given
+    // update welcome messages dynamically for either Adding or Updating a Blog Post based on if ID is given
+    const welcome = () => {
+        if(id){
+            return <h4 className="text-left text-primary text-capitalize">Something Wrong, Dominic...</h4>
+        } else {
+            return <h4 className="text-left text-primary text-capitalize">Welcome back, Dominic...</h4>
+        }
+    }
     const welcomeMessage = () => {
         if (id) {
             return <h2 className="text-dark text-left">No Worries, We Can Fix That!</h2>
@@ -81,7 +87,7 @@ function CreateBlog() {
     return (
         <div className="container">
             <div className="greeting1" style={{ padding: 25 }}>
-                <h4 className="text-left text-primary text-capitalize">Welcome back, Dominic...</h4>
+                {welcome()}
                 {welcomeMessage()}
             </div>
             <div className="panel panel-primary" style={{ marginTop: 50, padding: 25 }}>
