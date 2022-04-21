@@ -9,6 +9,7 @@ function ReadBlog() {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const { slug } = useParams();
+    const [copyLink, setCopyLink] = useState(true);
 
     useEffect(() => {
         BlogPostsService.getPostBySlug(slug)
@@ -23,6 +24,20 @@ function ReadBlog() {
                     setIsLoaded(true);
                 })
     }, [slug])
+
+
+    const handleCopy = () => {
+        const fakeUrl = document.createElement('input');
+        document.body.appendChild(fakeUrl);
+        const url = window.location.href;
+        fakeUrl.value = url;
+        fakeUrl.select();
+        // deprectaed? may have to update
+        document.execCommand('copy');
+        document.body.removeChild(fakeUrl);
+        setCopyLink(false);
+    }
+    
 
 
     if (error) {
@@ -46,7 +61,7 @@ function ReadBlog() {
                         <article key={slugBlog.id} style={{ marginTop: 50 }}>
                             <header>
                                 <h2>{slugBlog.title}</h2>
-                                <p style={{ fontStyle: 'italic' }}>{new Date(slugBlog.postedOn).toDateString()} <i className="bi bi-share-fill"></i></p>
+                                <p style={{ fontStyle: 'italic' }}>{new Date(slugBlog.postedOn).toDateString()} <i className="bi bi-share-fill" onClick={() => handleCopy()}></i></p>
                             </header>
                             <section style={{ marginTop: 25 }}>
                                 {slugBlog.body}

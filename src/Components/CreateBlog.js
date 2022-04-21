@@ -71,7 +71,7 @@ function CreateBlog() {
     // update welcome messages dynamically for either Adding or Updating a Blog Post based on if ID is given
     const welcome = () => {
         if(id){
-            return <h4 className="text-left text-primary text-capitalize">Something Wrong, Dominic...</h4>
+            return <h4 className="text-left text-primary text-capitalize">Oops. Something Wrong?</h4>
         } else {
             return <h4 className="text-left text-primary text-capitalize">Welcome back, Dominic...</h4>
         }
