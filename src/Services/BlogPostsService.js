@@ -2,8 +2,10 @@
 
 import axios from "axios";
 
-const GET_LIST_API = "http://localhost:8001/posts";
-const GET_SLUG_API = "http://localhost:8001/post"
+// const GET_LIST_API = "http://localhost:8001/posts";
+// const GET_SLUG_API = "http://localhost:8001/post"
+const GET_LIST_API = "https://iqwhxy1099.execute-api.us-east-2.amazonaws.com/test/portfolio-api/posts-api"
+const GET_SLUG_API = "https://iqwhxy1099.execute-api.us-east-2.amazonaws.com/test/portfolio-api/slug-api"
 
 class BlogPostsService{
     getAllPosts(){

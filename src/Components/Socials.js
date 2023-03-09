@@ -4,7 +4,7 @@ import './Socials.css';
 function Socials() {
 
     return (
-        <div className="container">
+        <div className="socials-container" style={{}}>
             <section>
                 <h3 className="text-primary" style={{fontSize: 30}}>Stay Connected</h3>
             </section>

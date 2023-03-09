@@ -40,7 +40,7 @@ function LatestBlog() {
         // display blogs attribute data from api call
         return (
             <div className="container text-left">
-                <h3 className="text-primary text-center" style={{ marginTop: 25, marginBottom: 55, fontSize: 27.5 }}>My Latest Post</h3>
+                <h3 className="text-primary text-center" style={{ marginTop: 25, marginBottom: 55, fontSize: 27.5 }}>Recently Posted</h3>
                 {
                     blogs.map(
                         blog =>

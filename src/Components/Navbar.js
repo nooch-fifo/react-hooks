@@ -11,28 +11,28 @@ function Navbar() {
         return <div><h5>Loading...</h5></div>
     }
 
-    var auth = (<div ></div>)
-    var guest = (<div></div>)
+    // var auth = (<div ></div>)
+    // var guest = (<div></div>)
     var authEdit = (<div></div>)
     var authCreate = (<div></div>)
 
-    if (!isAuthenticated) {
-        guest = (
-            <div className="navbar-text navbar-right" style={{ marginRight: 355 }}>Guest User</div>
-        )
-    }
+    // if (!isAuthenticated) {
+    //     guest = (
+    //         <div className="navbar-text navbar-right" style={{ marginRight: 355 }}>Guest User</div>
+    //     )
+    // }
 
     if (isAuthenticated) {
-        auth = (
-            <div className="navbar-text navbar-right" style={{ marginRight: 25 }}>
-                <Link to="/adminDom">Signed in as: {user.name} </Link>
-            </div>
-        );
+        // auth = (
+        //     <div className="navbar-text navbar-right" style={{ marginRight: 25 }}>
+        //         <Link to="/adminDom">Signed in as: {user.name} </Link>
+        //     </div>
+        // );
         authEdit = (
-            <Link to="/editPosts">Edit Posts <i class="bi bi-file-earmark-minus"></i></Link>
+            <Link to="/editPosts">Edit Posts <i className="bi bi-file-earmark-minus"></i></Link>
         );
         authCreate = (
-            <Link to="/addPost">New Post <i class="bi bi-pencil-square"></i></Link>
+            <Link to="/addPost">New Post <i className="bi bi-pencil-square"></i></Link>
         )
     }
     return (
@@ -43,9 +43,14 @@ function Navbar() {
                 </div>
                 <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style={{ marginLeft: 355 }}>
                     <ul className="nav navbar-nav">
-                        <li className="home-link"><Link to="/" style={{ color: 'black'}}>Home</Link></li>
+                        <li className="home-link"><Link to="/" style={{ color: 'black' }}>Home</Link></li>
+                        {/* <li className="home-link"><Link to="/blog" style={{ color: 'black' }}>Blog</Link></li> */}
                         <li className="dropdown-blogs">
-                            <Link to="/posts" style={{ color: 'black'}}>Blog Posts</Link>
+                            <Link to="/posts" style={{ color: 'black' }}>Posts</Link>
+                        </li>
+                        <li className="dropdown-blogs">
+                            <a href='https://www.youtube.com/' style={{ color: 'black' }}>Video Walthrough</a>
+                            {/* <Link to="https://www.youtube.com/" style={{ color: 'black' }}>Video Walthrough</Link> */}
                         </li>
                         {/* <li class="dropdown">
                             <Link to="/posts">Social Media</Link>
@@ -61,10 +66,12 @@ function Navbar() {
                         <li className="dropdown">
                             {authEdit}
                         </li>
-                        <hr className='header'/>
+                        <hr className='header' />
                     </ul>
+                    {/*  
                     {auth}
                     {guest}
+                    */}
                 </div>
             </div>
         </nav>

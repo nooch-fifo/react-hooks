@@ -1,5 +1,5 @@
 {
-  "name": "capstone",
+  "name": "portfolio-blog",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,10 +8,15 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.25.0",
+    "bootstrap": "^5.2.2",
     "react": "^17.0.2",
+    "react-bootstrap": "^2.6.0",
     "react-dom": "^17.0.2",
+    "react-on-screen": "^2.1.1",
+    "react-particles": "^2.5.3",
     "react-router-dom": "^5.2.1",
     "react-scripts": "4.0.3",
+    "tsparticles": "^1.40.2",
     "web-vitals": "^1.1.2"
   },
   "scripts": {

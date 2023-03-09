@@ -3,7 +3,7 @@ import AboutMe from './AboutMe';
 import LatestBlog from './LatestBlog';
 import Socials from './Socials';
 
-function Home(){
+function BlogHome(){
     return(
         <div className="Home">
             <AboutMe />
@@ -13,4 +13,4 @@ function Home(){
     )
 }
 
-export default Home;
+export default BlogHome;

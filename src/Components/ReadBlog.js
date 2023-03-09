@@ -5,13 +5,20 @@ import { withRouter, useParams } from 'react-router-dom';
 function ReadBlog() {
 
     const [blog, setBlog] = useState([]);
-    const [like, setLike] = useState(0);
+    const [like, setLike] = useState(Number(localStorage.getItem('like')));
+    const [likeClicked, setLikeClicked] = useState(false);
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const { slug } = useParams();
     const [copyLink, setCopyLink] = useState(true);
 
     useEffect(() => {
+        const data = Number(window.localStorage.getItem('likeCount'));
+        if (data !== null) setLike((data));
+    }, [])
+
+    useEffect(() => {
+        window.localStorage.setItem('likeCount', like);
         BlogPostsService.getPostBySlug(slug)
             .then((res) => {
                 console.log(res.data);
@@ -23,8 +30,18 @@ function ReadBlog() {
                     setError(error);
                     setIsLoaded(true);
                 })
-    }, [slug])
+    }, [slug, like])
 
+    const handleLike = (e) => {
+        console.log("clicked")
+        if (likeClicked === false) {
+            document.getElementById("likeButton").disabled = true;
+            document.getElementById("heart-icon").style.color = "#FF0000";
+            setLikeClicked(true);
+            setLike(like + 1);
+        }
+        return;
+    }
 
     const handleCopy = () => {
         const fakeUrl = document.createElement('input');
@@ -37,8 +54,18 @@ function ReadBlog() {
         document.body.removeChild(fakeUrl);
         setCopyLink(false);
     }
-    
 
+    var copied = (<span></span>)
+
+    if (copyLink){
+        copied = (
+            <span>Share</span>
+        )
+    } else {
+        copied = (
+            <span>Link Copied!</span>
+        )
+    }
 
     if (error) {
         return <div>Error: {error.message}</div>
@@ -61,7 +88,7 @@ function ReadBlog() {
                         <article key={slugBlog.id} style={{ marginTop: 50 }}>
                             <header>
                                 <h2>{slugBlog.title}</h2>
-                                <p style={{ fontStyle: 'italic' }}>{new Date(slugBlog.postedOn).toDateString()} <i className="bi bi-share-fill" onClick={() => handleCopy()}></i></p>
+                                <p style={{ fontStyle: 'italic' }}>{new Date(slugBlog.postedOn).toDateString()} <i className="bi bi-share-fill" style={{ cursor: 'pointer' }} onClick={() => handleCopy()}> {copied}</i></p>
                             </header>
                             <section style={{ marginTop: 25 }}>
                                 {slugBlog.body}
@@ -77,7 +104,7 @@ function ReadBlog() {
                     )
                 }
                 <div className="text-center">
-                    <button onClick={() => setLike(like + 1)}><i className="bi bi-suit-heart" style={{ fontSize: 20 }}></i></button>
+                    <button id="likeButton" onClick={() => handleLike()} style={{border: 'none', padding: 0, background: 'none'}}><i className="bi bi-suit-heart" id="heart-icon" style={{ fontSize: 20 }}></i></button>
                     <p>{like}</p>
                 </div>
             </div>
